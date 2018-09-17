@@ -1,0 +1,120 @@
+<!-- 
+<tabs >
+  <tab tabTitle="Activity">
+    I am the foo content
+  </tab>
+  <tab tabTitle="Segments">
+    <app-segments></app-segments>
+  </tab>
+  <tab tabTitle="Contact List">
+    I am the bar content
+  </tab>
+
+  <div> fsad fd</div>
+</tabs> -->
+
+<!-- 
+<div>
+<mat-tab-group (selectedTabChange)="yourFn($event)">
+  <mat-tab label="First"> <app-activity></app-activity> </mat-tab>
+  <mat-tab label="Second"> <app-segments></app-segments> </mat-tab>
+  <mat-tab label="Third"> <app-contactlist></app-contactlist> </mat-tab>
+</mat-tab-group> 
+</div> -->
+
+
+<!-- <nav mat-tab-nav-bar class="tabs">
+  <a mat-tab-link  class="tab"
+     *ngFor="let link of routeLinks"
+     [routerLink]="link.link"
+     [active]="activeLinkIndex == link.index"
+     >
+    {{link.label}}
+  </a>
+</nav> -->
+
+
+
+
+<!-- <div style="padding: 5px;">
+ 
+  <nav mat-tab-nav-bar >
+      <a mat-tab-link
+         *ngFor="let routeLink of routeLinks; let i = index;"
+         [routerLink]="routeLink.link"
+         routerLinkActive="mat-tab-link-active"
+         #rla="routerLinkActive"
+         [active]="activeLinkIndex === i"
+         (click)="activeLinkIndex = i"
+         [routerLinkActiveOptions]="{exact: true}"
+      >
+          {{routeLink.label}}
+      </a>
+  </nav>
+<router-outlet></router-outlet>
+</div> -->
+
+
+
+
+<!-- <div class="tab">
+  <button class="tablinks" (click)="activity1($event)">Activity</button>
+  <button class="tablinks" (click)="segments1($event)">Segments</button>
+  <button class="tablinks" (click)="contactlist1($event)">Contact List</button>
+</div>
+
+<div>
+  Record count : List Number: List Status:
+  </div>
+
+  <div>
+     <div  *ngIf="activity == true"> <app-activity></app-activity></div>
+      <div  *ngIf="segments == true" ><app-segments></app-segments></div>
+        <div  *ngIf="contactlist == true" ><app-contactlist></app-contactlist></div>
+      
+  </div>
+
+
+  <input type="button" value="Cancel">
+  &nbsp;
+  <input type="button" value="Save & Close"> -->
+
+
+
+
+
+
+
+<kendo-tabstrip>
+
+  <kendo-tabstrip-tab [title]="'Activity'" [selected]="true">
+    <ng-template kendoTabContent>
+
+      <div>
+        <span>Record count: </span>
+        <span>List Number: </span>
+        <span>List Status: </span>
+      </div>
+
+      <app-activity></app-activity>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'Segments'">
+    <ng-template kendoTabContent>
+      <app-segments></app-segments>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'Contact List'">
+    <ng-template kendoTabContent>
+      <div>
+        <span>Record count: </span>
+        <span>List Number: </span>
+        <span>List Status: </span>
+      </div>
+      <app-contactlist></app-contactlist>
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+</kendo-tabstrip>
