@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { products } from './products';
+import { products } from './products';
 
 @Component({
   selector: 'app-activity',
@@ -7,35 +7,63 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activity.component.css']
 })
 export class ActivityComponent implements OnInit {
-  gridData = [];
-  ValueFromInputText
+  // gridData = products;
+  gridData = []
+  ValueFromInput;
+  log;
+  by;
+  date;
+  item = {}
+  ControlIndex = 0
   json_object_2
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
 
-  fromDB(){
 
-    this.json_object_2 = JSON.parse(this.ValueFromInputText);
-    console.log(this.json_object_2);
-    
-    this.fromJSON(this.json_object_2);
 
+  get() {
+
+    this.item = {}
+    this.item["iVal"] = this.ControlIndex
+    this.item["activityLog"] = this.log
+    this.item["modifiedBy"] = this.by
+    this.item["modifiedDate"] = this.date
+    console.log(this.item);
+
+    this.gridData[this.ControlIndex] = this.item
+    console.log(this.gridData);
+    this.ControlIndex++;
   }
 
-  fromJSON(jsonObj){
-    this.gridData = [];
+
+  fromDB() {
+
+    this.json_object_2 = JSON.parse(this.ValueFromInput);
+    console.log(this.ValueFromInput);
+
+    this.fromJSON(this.json_object_2);
+
+    /*     this.gridData = this.ValueFromInput;
+        console.log(this.gridData); */
+  }
+
+  fromJSON(jsonObj) {
+    let Array_SeqNumber = []
     console.log(jsonObj);
-    jsonObj.forEach(index => {
- 
-      this.gridData['ProductID'] = index.ProductID;
-      this.gridData['ProductName'] = index.ProductName;
-      this.gridData['CategoryName'] = index.CategoryName; 
-      
-    });
-    console.log(this.gridData);
+
+    this.gridData = jsonObj
+
+    for (let j = 0; j < jsonObj.length; j++) {
+     Array_SeqNumber[j] = jsonObj[j].iVal
+    }
+    console.log(Array_SeqNumber)
+
+    let MaxOfControlIndex = Math.max.apply(Math, Array_SeqNumber);
+    this.ControlIndex = MaxOfControlIndex + 1;
+
   }
 
 }

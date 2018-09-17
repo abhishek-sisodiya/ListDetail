@@ -1,3 +1,19 @@
+export const products = [
+    {
+      "activityLog": 76,
+      "modifiedBy": "Lakkalikööri",
+      "modifiedDate": "Beverages"
+    },
+    {
+      "activityLog": 77,
+      "modifiedBy": "Lakkalikööri",
+      "modifiedDate": "Beverages"
+    }
+  ]
+
+
+
+
 /* 
 
 

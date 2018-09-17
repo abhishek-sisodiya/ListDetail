@@ -3,15 +3,20 @@
 
 
 
-<kendo-grid [data]="gridData" [height]="210">
-    <kendo-grid-column field="ProductID" title="Activity Log" width="150">
+<kendo-grid [data]="gridData"  >
+    <kendo-grid-column field="activityLog" title="Activity Log" >
     </kendo-grid-column>
-    <kendo-grid-column field="ProductName" title="Modified By" width="150">
+    <kendo-grid-column field="modifiedBy" title="Modified By" >
     </kendo-grid-column>
-    <kendo-grid-column field="CategoryName" title="Modified Date" width="150">
+    <kendo-grid-column field="modifiedDate" title="Modified Date" >
     </kendo-grid-column>
 </kendo-grid>
 
 
-<input  [(ngModel)]="ValueFromInputText" /> &nbsp;
-<button  (click)="fromDB()">createControl_FromDatabase</button>
+<input  [(ngModel)]="log" /> &nbsp;
+<input  [(ngModel)]="by" /> &nbsp;
+<input  [(ngModel)]="date" /> &nbsp;
+<button  (click)="get()">GET</button><br>
+
+<input  [(ngModel)]="ValueFromInput" /> &nbsp;
+<button  (click)="fromDB()">FromDatabase</button>
