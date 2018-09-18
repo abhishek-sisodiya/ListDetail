@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
+
 
 
 
@@ -45,7 +47,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
     BrowserAnimationsModule,
     BrowserModule,
     LayoutModule,
-    GridModule
+    GridModule,
+    DialogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

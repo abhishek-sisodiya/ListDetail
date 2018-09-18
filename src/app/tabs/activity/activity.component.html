@@ -3,19 +3,40 @@
 
 
 
-<kendo-grid [data]="gridData"  >
+<kendo-grid [data]="gridData"  (remove)="removeHandler($event)" [height]="200">
     <kendo-grid-column field="activityLog" title="Activity Log" >
     </kendo-grid-column>
     <kendo-grid-column field="modifiedBy" title="Modified By" >
     </kendo-grid-column>
     <kendo-grid-column field="modifiedDate" title="Modified Date" >
     </kendo-grid-column>
+
+    <kendo-grid-command-column >
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <!-- <button kendoGridEditCommand type="button" [primary]="true">Rename</button> -->
+            <!-- <button kendoGridRemoveCommand type="button" (click)="open('dialog')">Remove</button> -->
+            <button kendoGridRemoveCommand type="button" >Remove</button>
+
+        </ng-template>
+    </kendo-grid-command-column>
+
 </kendo-grid>
 
+<div kendoDialogContainer></div>
 
-<input  [(ngModel)]="log" /> &nbsp;
-<input  [(ngModel)]="by" /> &nbsp;
-<input  [(ngModel)]="date" /> &nbsp;
+
+<!-- <kendo-dialog title="Please confirm" *ngIf="dialogOpened" (close)="close('dialog')" [minWidth]="250" [width]="450">
+    <p style="margin: 30px; text-align: center;">Are you sure you want to delete?</p>
+    <kendo-dialog-actions>
+        <button kendoButton (click)="action('no')">No</button>
+        <button kendoButton (click)="action('yes')" primary="true">Yes</button>
+    </kendo-dialog-actions>
+</kendo-dialog> -->
+
+
+<input  [(ngModel)]="activityLog" /> &nbsp;
+<input  [(ngModel)]="modifiedBy" /> &nbsp;
+<input  [(ngModel)]="modifiedDate" /> &nbsp;
 <button  (click)="get()">GET</button><br>
 
 <input  [(ngModel)]="ValueFromInput" /> &nbsp;

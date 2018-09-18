@@ -1,0 +1,10 @@
+.outer-box{
+    height: 476px;
+    width: 583px;
+    border: black 1px solid;
+  }
+  .k-dialog{ background-color: red;}
+  .custom-btn{background-color:#e0e8ea!important;color:grey;margin-right:10px;}
+  .btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+  .icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+  
