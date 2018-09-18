@@ -23,6 +23,8 @@ export class ActivityComponent implements OnInit {
   json_object_2;
   public dialogOpened = false;
   public result;
+  items = [{ text: '...', 
+  items: [{ text: 'Delete' },{ text: 'Download' },]}]
 
   constructor(private dialogService: DialogService) { }
 
@@ -38,10 +40,7 @@ export class ActivityComponent implements OnInit {
     this[component + 'Opened'] = false;
   }
   public action(status) {
-    console.log(`Dialog result: ${status}`);
-    console.log(status);
-    
-    this.dialogResult = status;
+
     this.dialogOpened = false;
 
   } */
@@ -50,9 +49,18 @@ export class ActivityComponent implements OnInit {
 
   public removeHandler(dataItem) {
 
+    if(dataItem.item.text == '...' || dataItem.item.text == 'Download'){
+      return false;
+    }
+
+
+    let x = dataItem.sender.itemsService.idPrefix.substring(6);
+    
+    console.log(x);
+
     const dialog: DialogRef = this.dialogService.open({
       title: 'Please confirm',
-      content: 'Are you sure?',
+      content: 'Are you sure you want to delete row '+x,
       actions: [
         { text: 'No' },
         { text: 'Yes', primary: true }
@@ -62,13 +70,13 @@ export class ActivityComponent implements OnInit {
       minWidth: 250
     });
 
-    dialog.result.subscribe((result) => {
+   /*  dialog.result.subscribe((result) => {
 
       this.result = result['text'];
 
       if (this.result == "Yes") {
 
-        this.gridData[dataItem.rowIndex] = ""
+        this.gridData[x] = ""
 
         let newArray = new Array();
         for (var i = 0; i < this.gridData.length; i++) {
@@ -77,10 +85,13 @@ export class ActivityComponent implements OnInit {
           }
         }
 
+        
+        
         this.gridData = newArray
         this.ControlIndex--
+
       }
-    });
+    }); */
   }
 
 
@@ -95,6 +106,9 @@ export class ActivityComponent implements OnInit {
 
     this.gridData[this.ControlIndex] = this.item;
     this.ControlIndex++;
+
+    console.log(this.gridData);
+    
   }
 
 

@@ -22,6 +22,8 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { MenuModule } from '@progress/kendo-angular-menu';
+
 
 
 
@@ -48,7 +50,8 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
     BrowserModule,
     LayoutModule,
     GridModule,
-    DialogsModule
+    DialogsModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
