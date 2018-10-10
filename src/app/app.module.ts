@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TabModule } from 'angular-tabs-component';
-import { TabsComponent } from './tabs/tabs.component';
-import { HeaderComponent } from './header/header.component';
-import { ActivityComponent } from './tabs/activity/activity.component';
-import { SegmentsComponent } from './tabs/segments/segments.component';
-import { ContactlistComponent } from './tabs/contactlist/contactlist.component';
+import { TabsComponent } from './listDetail/tabs/tabs.component';
+import { HeaderComponent } from './listDetail/header/header.component';
+import { ActivityComponent } from './listDetail/tabs/activity/activity.component';
+import { SegmentsComponent } from './listDetail/tabs/segments/segments.component';
+import { ContactlistComponent } from './listDetail/tabs/contactlist/contactlist.component';
+import { TabsListManagerComponent } from './listManager/tabs-list-manager/tabs-list-manager.component';
+import { HeaderListManagerComponent } from './listManager/header-list-manager/header-list-manager.component';
 
 import { RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -36,7 +38,9 @@ import { MenuModule } from '@progress/kendo-angular-menu';
     HeaderComponent,
     ActivityComponent,
     SegmentsComponent,
-    ContactlistComponent
+    ContactlistComponent,
+    TabsListManagerComponent,
+    HeaderListManagerComponent
   ],
   imports: [
     FormsModule,
